@@ -11,7 +11,7 @@ const Header = () => {
       {/* TOP NAV */}
       <div className="top-nav flex items-center bg-amazon_blue p-1 flex-grow py-2 gap-x-2">
         {/* Amazon logo */}
-        <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
+        <div className="mt-2 flex items-center sm:flex-grow-0">
           <Image
             src="https://links.papareact.com/f90"
             width={150}
@@ -25,6 +25,9 @@ const Header = () => {
         <div className="hidden lg:flex items-center cursor-pointer"></div>
 
         {/* custom searchbar */}
+        <div className="flex sm:hidden bg-yellow-400 rounded-md h-10 items-center hover:bg-yellow-500">
+          <SearchIcon className="h-12 p-4 cursor-pointer" />
+        </div>
         <div className="hidden sm:flex items-center h-10 search-bar flex-grow cursor-pointer bg-yellow-400 rounded-md hover:bg-yellow-500">
           <input
             type="text"
