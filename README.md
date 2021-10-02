@@ -10,3 +10,4 @@ Firebase
 FreeStore API
 
 ## Other notes
+https://amazon-clone-bycho91.vercel.app/
