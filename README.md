@@ -11,5 +11,9 @@ NextAuth
 Stripe for payments
 FreeStore API
 
+## Things to work on:
+Adding Redux for state management
+Website shows that it is a dangerous site when trying to sign-in using next-auth
+
 ## Other notes
 https://amazon-clone-bycho91.vercel.app/
