@@ -3,15 +3,20 @@ import {
   MenuIcon,
   SearchIcon,
   ShoppingCartIcon,
+  LocationMarkerIcon,
 } from "@heroicons/react/outline";
+import { signIn, signOut, useSession } from "next-auth/client";
 
 const Header = () => {
+  const [session] = useSession();
+
   return (
     <div className="Header">
       {/* TOP NAV */}
       <div className="top-nav flex items-center bg-amazon_blue p-1 flex-grow py-2 gap-x-2">
         {/* Amazon logo */}
-        <div className="mt-2 flex items-center sm:flex-grow-0">
+        <div className="mt-2 flex items-center sm:flex-grow-0 mr-2">
+          {/* LOGO */}
           <Image
             src="https://links.papareact.com/f90"
             width={150}
@@ -19,12 +24,20 @@ const Header = () => {
             objectFit="contain"
             className="cursor-pointer"
           />
+
+          {/* Deliver To */}
+          {session && (
+            <div className="hidden link lg:flex flex-col items-center cursor-pointer text-white">
+              <p className="text-xs">{`Deliver to ${session.user.name}`}</p>
+              <div className="flex items-center space-x-1">
+                <LocationMarkerIcon className="h-5" />
+                <p className="font-extrabold md:text-sm">Plano 75024</p>
+              </div>
+            </div>
+          )}
         </div>
 
-        {/* Deliver To */}
-        <div className="hidden lg:flex items-center cursor-pointer"></div>
-
-        {/* custom searchbar */}
+        {/* SEARCHBAR */}
         <div className="flex sm:hidden bg-yellow-400 rounded-md h-10 items-center hover:bg-yellow-500">
           <SearchIcon className="h-12 p-4 cursor-pointer" />
         </div>
@@ -37,10 +50,10 @@ const Header = () => {
           <SearchIcon className="h-12 p-4 cursor-pointer" />
         </div>
 
-        {/* links and cart */}
+        {/* LINKS AND CART */}
         <div className="links flex items-center text-white text-xs space-x-6 mx-6 whitespace-nowrap">
-          <div className="account link">
-            <p>Hello Benjamin</p>
+          <div className="account link" onClick={!session ? signIn : signOut}>
+            <p>{session ? `Hello, ${session.user.name}` : "Sign In"}</p>
             <p className="font-extrabold md:text-sm">Account & Lists</p>
           </div>
           <div className="orders link">

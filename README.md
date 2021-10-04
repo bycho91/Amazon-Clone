@@ -7,6 +7,8 @@ HeroIcons
 React Responsive Carousel
 Redux
 Firebase
+NextAuth
+Stripe for payments
 FreeStore API
 
 ## Other notes
