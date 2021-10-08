@@ -1,7 +1,8 @@
-const store = () => {
-  return {
-    cool: "cool",
-  };
-};
+import { configureStore } from "@reduxjs/toolkit";
+import basketReducer from "../slices/basketSlice";
 
-export default store;
+export const store = configureStore({
+  reducer: {
+    basket: basketReducer,
+  },
+});
